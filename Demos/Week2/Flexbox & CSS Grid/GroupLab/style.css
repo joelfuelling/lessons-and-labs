@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: rgb(132, 132, 171);
+    margin: 0;
+    font-family: Helvetica;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 3fr 5fr;
+    grid-template-rows: 25px 1fr;
+    
+  }
+  aside {
+    background-color: #eaeaea;
+    align-items: left;
+    
+}
+      
+main {
+    background-color: #eaeaea;
+    border: 5px solid rgb(198, 132, 132);
+}
+      
+footer {
+background-color: #a2cbb6;
+grid-template-columns: 3fr 5fr;
+}
+.flex-ctr {
+  grid-template-rows: 25px 2fr;
+  display: grid;
+  justify-content: center;
+  align-items: end;
+}
+
+.wrapped {
+  display: grid;
+  grid-template-r: 100px 100px 100px;
+  background-color: #d3d3d3;
+}
+
+.flex-ctr #phone {
+  
+}
+.flex-ctr #message {
+  
+}

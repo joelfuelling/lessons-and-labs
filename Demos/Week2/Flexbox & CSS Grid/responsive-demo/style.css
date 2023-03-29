@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+    margin: 0;
+    font-family: Helvetica;
+    display: grid;
+    /* mobile first - single column */
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 30px auto 100px;
+    grid-template-areas: 
+      "hdr"
+      "ftr"
+      "content"
+      "side";
+      /* THIS is a VERY easy way to shortcut your grids into names, and then order them as you wish in the 'grid-template-areas' in the body, buy moving the names above around as you wish.*/
+  }
+  
+  header {
+    grid-area: hdr;
+    background-color: #ff9e7a;
+  }
+  
+  footer {
+    grid-area: ftr;
+    background-color: #b1fcc8;
+  }
+  
+  aside {
+    grid-area: side;
+    background-color: #ffe07a;
+  }
+  
+  main {
+    grid-area: content; /* Don't matter that this is ornage (content is a CSS variable that's why it's Orange). But, in the grid-area instance it knows that 'content' is the footer element*/
+    background-color: #bf9df7;
+  }
+  
+  header, footer, aside, main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media only screen and (min-width: 768px){ /* @media MUST GO AT THE END of the CSS, since it's read last.*/
+    body {
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: 50px auto 30px;
+        grid-template-areas: /* THIS IS SO COOOOOL!!! */ 
+        "hdr hdr" /* The header should take up two columns*/
+        "side content" /* Side will take up 1 column (1fr), content will take up another column (4 fr)*/
+        "ftr ftr" /* The footer will take up two columns*/
+    }
+
+
+    
+  } /* CHALLENGE: make a media inquiry with a screen width minimum of 1024 pixels that changes the color of one element, and the background color of another( I did a few other things)*/
+  @media only screen and (min-width: 1024px){
+    footer {
+        color: red;
+    }
+    aside, header {
+        font-size: 40px;
+    }
+    main {
+        background-color: white;
+        font-size: 200px;
+    }
+
+  }

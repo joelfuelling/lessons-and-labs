@@ -1,0 +1,47 @@
+* {
+    border: 2px solid rgb(194, 194, 194);
+}
+body {
+    height: 100vh;
+    width: 50vh;
+    margin: 5px;
+    background-color: rgb(119, 55, 20);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 200px auto auto 30px;
+}
+nav {
+    border-bottom: solid rgba(172, 0, 0, 0.91);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header {
+    display: flex;
+    grid-column: span 2
+}
+.login {
+    display: flex;
+    flex-direction: row;
+}
+.innertitle {
+    display: flex;
+    grid-column: span 2;
+}
+.main-content {
+    display: flex;
+    grid-column: span 2;
+}
+
+
+
+
+.flex-ctr, header { /* This applies the below to all flex-ctr classes added in the HTML*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+@media screen and (max-width: 500px) {
+
+}

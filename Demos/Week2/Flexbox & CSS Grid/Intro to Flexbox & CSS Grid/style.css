@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(132, 132, 171);
+    margin: 0;
+    font-family: Helvetica;
+    height: 100vh; /* Take up 100% of the 'Viewport (screen) Height' */
+    display: grid;
+    grid-template-columns: 1fr 4fr; /* 1 (fraction) and 4(fraction) eqaul 5! So, the 1st column takes up 1/5 or 20%, and the 2nd column takes up 4/5 or 80%... HOWEVER
+    ... '20% 80%', but the functionality changes!
+    ... % does not consider any grid gap set, therefore its use can lead to the grid items overflowing its grid container
+    ... A % length is relative to local context (containing element) width, while a vw length is relative to the full width of the browser window.
+    https://css-tricks.com/fun-viewport-units/ */
+    grid-template-rows: 50px 1fr 30px; /* Toggle this on and off in the HTML to see what happens*/
+    gap: 5px;
+}
+
+nav { /* We've given the parent element the flex property, now they're all flexed!*/
+    display: flex; /*  THE GOLDEN HORIZONTAL LINE UP.*/
+    flex-direction: row;
+    justify-content: space-around; 
+    align-items: center;
+    background-color: #a2cbb6;
+    height: 50px; /* This matches the 50px in the 1ST ROW declared above in grid-template-rows*/
+    /* grid-row: span 2; --- Only here for exercise purposes. Turn this on and off to see how the nav bar takes up the first 2 rows, which IS A LOT! */
+    gap: 3px;
+}
+nav, footer {
+    grid-column: span 2; /* take up 2 columns worth of space! TURN THIS ON AND OFF and see how the NAV and FOOTER bar size changes in the HTML ... an alternative, weird way to write this is...
+    grid-column: 1 / 3; ... Meaning, starting at 1, and up to BUT NOT INCLUDING the 3, cover that many columns. Just use span :) */
+}
+
+nav div { /* Targetting the divs within the nav, the parents of the child*/
+    font-size: 20px; 
+    color: #8e6610;
+    margin: 10px
+} 
+/* Use the HTML inspect to get this all tested before entering into CSS.
+The > symbol only works if its a direct descendent. In this example, we've added classes to each menu item to TEST if the ".nav-item:lastchild" would still work, and it does. So, we don't need the classes but it's better organizaiton on a busier page*/
+
+nav .nav-item:last-child { /* This pushes the 'LOG OUT' to the right, and the rest of the nav elements off to the left.*/
+    margin-left: auto;
+}
+
+aside {
+    background-color: #a2b4da;
+}
+      
+main {
+    background-color: #f3dba8;
+}
+      
+footer {
+background-color: #a2cbb6;
+}
+.flex-ctr { /* This applies the below to all flex-ctr classes added in the HTML*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* BAD EXAMPLE --- Below is the phone default, which would go frist in your CSS. Not last. But, it's here as an example*/
+@media screen and (max-width: 500px) {
+    nav {
+        flex-direction: column; /* PHONE DEFAULT*/
+        height: 250px; /* This MATCHES the 250 in body below, so that when this increases to 250, the body row also increases to 250 to match it.*/
+    }
+    body {
+        flex-direction: row;
+        grid-template-rows: 250px auto 30px;
+    }
+    nav .nav-item:last-child { 
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
