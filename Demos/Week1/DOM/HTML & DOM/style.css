@@ -1,0 +1,41 @@
+/*  *{
+    border: 1px solid green;
+}
+        * means everything!! WILDCARD!!  
+*/
+
+
+body {
+    background-color: rgba(200,200,230,.4);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+/* 
+Below, it makes sense to use an ID since there is only 1 title and 1 todos list.
+*/
+
+#title {
+    text-align: center;
+    color: purple;
+    width: 140px; 
+    font-size: 28px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+li:hover {
+    background-color: red;
+}
+#todos-list li {
+    list-style: none;
+    padding: 10px 0 10px 15px;
+    margin: 5px;
+}
+
+#todos-container li {
+    padding-left: 15px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border: 2px solid orange;
+    border-top-right-radius: 45%;
+    border-bottom-right-radius: 45%;
+    width: 450px;
+}
